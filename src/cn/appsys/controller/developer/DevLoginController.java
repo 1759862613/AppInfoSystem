@@ -59,7 +59,7 @@ public class DevLoginController {
 	public String logout(HttpSession session){
 		//清除session
 		session.removeAttribute(Constants.DEV_USER_SESSION);
-		return "redirect:../";
+		return "devlogin";
 	}
 }
 

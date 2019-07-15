@@ -30,7 +30,7 @@ public interface AppInfoMapper {
 							   @Param(value="flatformId")Integer queryFlatformId,
 							   @Param(value="devId")Integer devId)throws Exception;
 	
-	public AppInfo getAppInfo(@Param(value="id")Integer id,@Param(value="APKName")String APKName)throws Exception;
+	public AppInfo getAppIdAndAPKName(@Param(value="id")Integer id,@Param(value="APKName")String APKName)throws Exception;
 
 	public int deleteAppLogo(@Param(value="id")Integer id)throws Exception;
 	

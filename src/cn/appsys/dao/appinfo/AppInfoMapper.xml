@@ -115,7 +115,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</trim>
 	</select>
 	
-	<select id="getAppInfo" resultType="AppInfo">
+	<select id="getAppIdAndAPKName" resultType="AppInfo">
 		select * ,
 			(select devName from dev_user where id = a.devId) as devName,
 			(select valueName from data_dictionary d where  a.status=d.valueId AND d.typeCode='APP_STATUS') as statusName,

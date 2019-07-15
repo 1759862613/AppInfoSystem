@@ -46,9 +46,9 @@ public class AppInfoServiceImpl implements AppInfoService {
 		return flag;
 	}
 
-	public AppInfo getAppInfo(Integer id,String APKName) throws Exception {
+	public AppInfo getAppIdAndAPKName(Integer id,String APKName) throws Exception {
 		// TODO Auto-generated method stub
-		return mapper.getAppInfo(id,APKName);
+		return mapper.getAppIdAndAPKName(id,APKName);
 	}
 
 	public List<AppInfo> getAppInfoList(String querySoftwareName,
@@ -106,7 +106,7 @@ public class AppInfoServiceImpl implements AppInfoService {
 		}
 		//2 鍐嶅垹app鍩虹淇℃伅
 		//<1> 鍒犻櫎涓婁紶鐨刲ogo鍥剧墖
-		AppInfo appInfo = mapper.getAppInfo(id, null);
+		AppInfo appInfo = mapper.getAppIdAndAPKName(id, null);
 		if(appInfo.getLogoLocPath() != null && !appInfo.getLogoLocPath().equals("")){
 			File file = new File(appInfo.getLogoLocPath());
 			if(file.exists()){
@@ -137,7 +137,7 @@ public class AppInfoServiceImpl implements AppInfoService {
 		}
 		
 		//get appinfo by appid
-		AppInfo appInfo = mapper.getAppInfo(appInfoObj.getId(), null);
+		AppInfo appInfo = mapper.getAppIdAndAPKName(appInfoObj.getId(), null);
 		if(null == appInfo){
 			return false;
 		}else{

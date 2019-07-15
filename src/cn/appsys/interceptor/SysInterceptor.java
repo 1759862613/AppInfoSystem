@@ -13,8 +13,8 @@ import cn.appsys.tools.Constants;
 
 public class SysInterceptor extends HandlerInterceptorAdapter {
 	
-	public boolean preHandle(HttpServletRequest request,HttpServletResponse response,Object handler) throws Exception{
 	
+	public boolean preHandle(HttpServletRequest request,HttpServletResponse response,Object handler) throws Exception{
 		HttpSession session = request.getSession();
 		
 		BackendUser backendUser = (BackendUser)session.getAttribute(Constants.USER_SESSION);

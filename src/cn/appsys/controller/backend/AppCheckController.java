@@ -45,7 +45,6 @@ public class AppCheckController {
 							@RequestParam(value="queryFlatformId",required=false) String _queryFlatformId,
 							@RequestParam(value="pageIndex",required=false) String pageIndex){
 		
-		
 		List<AppInfo> appInfoList = null;
 		List<DataDictionary> flatFormList = null;
 		List<AppCategory> categoryLevel1List = null;//鍒楀嚭涓�绾у垎绫诲垪琛紝娉細浜岀骇鍜屼笁绾у垎绫诲垪琛ㄩ�氳繃寮傛ajax鑾峰彇

@@ -68,7 +68,7 @@ public interface AppInfoService {
 	 * @return
 	 * @throws Exception
 	 */
-	public AppInfo getAppInfo(Integer id,String APKName)throws Exception;
+	public AppInfo getAppIdAndAPKName(Integer id,String APKName)throws Exception;
 	
 	/**
 	 * 删除logo图片

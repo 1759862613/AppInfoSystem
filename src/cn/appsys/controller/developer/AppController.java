@@ -285,7 +285,7 @@ public class AppController {
 		List<AppVersion> appVersionList = null;
 		try {
 			appVersionList = appVersionService.getAppVersionList(Integer.parseInt(appId));
-			appVersion.setAppName((appInfoService.getAppInfo(Integer.parseInt(appId),null)).getSoftwareName());
+			appVersion.setAppName((appInfoService.getAppIdAndAPKName(Integer.parseInt(appId),null)).getSoftwareName());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -317,7 +317,7 @@ public class AppController {
 			if(prefix.equalsIgnoreCase("apk")){//apk文件命名：apk名称+版本号+.apk
 				 String apkName = null;
 				 try {
-					apkName = appInfoService.getAppInfo(appVersion.getAppId(),null).getAPKName();
+					apkName = appInfoService.getAppIdAndAPKName(appVersion.getAppId(),null).getAPKName();
 				 } catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -392,13 +392,6 @@ public class AppController {
 			//errorCode:0为正常
 			resultMap.put("errorCode", "param000001");
 		}
-		
-		/*
-		 * resultMsg:success/failed
-		 * errorCode:exception000001
-		 * appId:appId
-		 * errorCode:param000001
-		 */
 		return resultMap;
 	}
 	
@@ -416,7 +409,7 @@ public class AppController {
 		}else{
 			AppInfo appInfo = null;
 			try {
-				appInfo = appInfoService.getAppInfo(null, APKName);
+				appInfo = appInfoService.getAppIdAndAPKName(null, APKName);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -439,7 +432,7 @@ public class AppController {
 		AppInfo appInfo = null;
 		List<AppVersion> appVersionList = null;
 		try {
-			appInfo = appInfoService.getAppInfo(Integer.parseInt(id),null);
+			appInfo = appInfoService.getAppIdAndAPKName(Integer.parseInt(id),null);
 			appVersionList = appVersionService.getAppVersionList(Integer.parseInt(id));
 		}catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -478,7 +471,7 @@ public class AppController {
 			fileUploadError = Constants.FILEUPLOAD_ERROR_4;
 		}
 		try {
-			appInfo = appInfoService.getAppInfo(Integer.parseInt(id),null);
+			appInfo = appInfoService.getAppIdAndAPKName(Integer.parseInt(id),null);
 		}catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -542,7 +535,7 @@ public class AppController {
 			if(prefix.equalsIgnoreCase("apk")){//apk文件命名：apk名称+版本号+.apk
 				 String apkName = null;
 				 try {
-					apkName = appInfoService.getAppInfo(appVersion.getAppId(),null).getAPKName();
+					apkName = appInfoService.getAppIdAndAPKName(appVersion.getAppId(),null).getAPKName();
 				 } catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -609,7 +602,7 @@ public class AppController {
 			resultMap.put("result", "failed");
 		}else if(flag.equals("logo")){//删除logo图片（操作app_info）
 			try {
-				fileLocPath = (appInfoService.getAppInfo(Integer.parseInt(id), null)).getLogoLocPath();
+				fileLocPath = (appInfoService.getAppIdAndAPKName(Integer.parseInt(id), null)).getLogoLocPath();
 				File file = new File(fileLocPath);
 			    if(file.exists())
 			     if(file.delete()){//删除服务器存储的物理文件

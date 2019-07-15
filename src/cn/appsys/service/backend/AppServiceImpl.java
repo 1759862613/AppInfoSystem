@@ -13,7 +13,7 @@ public class AppServiceImpl implements AppService {
 	
 	public AppInfo getAppInfo(Integer id) throws Exception {
 		// TODO Auto-generated method stub
-		return mapper.getAppInfo(id, null);
+		return mapper.getAppIdAndAPKName(id, null);
 	}
 
 	public List<AppInfo> getAppInfoList(String querySoftwareName,
